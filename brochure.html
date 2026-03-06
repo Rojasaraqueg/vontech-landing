@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VONTECH - Brochure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #0B3D91;
+            --blue-dark: #072A66;
+            --navy: #0A1628;
+            --navy-light: #0F2240;
+            --cyan: #00D4FF;
+            --cyan-dim: #00A8CC;
+            --teal: #00E5A0;
+            --white: #F0F4F8;
+            --gray: #8899AA;
+            --gray-light: #B8C8D8;
+            --surface: #111C2E;
+        }
+        @page { size: A4 landscape; margin: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 13px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: white; color: #1a1a2e; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .page {
+            width: 297mm; height: 210mm; position: relative; overflow: hidden;
+            page-break-after: always; margin: 0 auto;
+        }
+        .page:last-child { page-break-after: auto; }
+
+        /* ===== COVER ===== */
+        .cover {
+            background: linear-gradient(160deg, var(--navy) 0%, var(--blue-dark) 40%, var(--blue) 70%, var(--navy) 100%);
+            color: white; display: flex; align-items: center; padding: 2.5rem 3.5rem;
+        }
+        .cover-orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.3; pointer-events: none; }
+        .cover-orb.o1 { width: 500px; height: 500px; background: var(--cyan); top: -150px; right: -100px; }
+        .cover-orb.o2 { width: 350px; height: 350px; background: var(--teal); bottom: -100px; left: -80px; opacity: 0.2; }
+        .cover-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+        .cover-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; width: 100%; }
+        .cover-left { }
+        .cover-logo { width: 200px; margin-bottom: 1.5rem; }
+        .cover-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 16px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.25); border-radius: 50px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--cyan); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.2rem; }
+        .cover-badge .dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+        .cover h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 1rem; }
+        .cover h1 span { background: linear-gradient(135deg, var(--cyan), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .cover-sub { font-size: 0.92rem; color: rgba(255,255,255,0.7); max-width: 420px; line-height: 1.7; margin-bottom: 2rem; }
+        .cover-stats { display: flex; gap: 2rem; }
+        .cover-stat { text-align: center; }
+        .cover-stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 800; }
+        .cover-stat-val .acc { color: var(--cyan); }
+        .cover-stat-lbl { font-size: 0.6rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+        .cover-image { border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); }
+        .cover-image img { width: 100%; }
+        .cover-footer { position: absolute; bottom: 1.2rem; left: 0; right: 0; text-align: center; z-index: 2; }
+        .cover-footer p { font-size: 0.65rem; color: rgba(255,255,255,0.35); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; }
+
+        /* ===== INNER PAGES ===== */
+        .inner-page { background: white; padding: 1.8rem 3rem; }
+        .inner-page.dark { background: var(--navy); color: white; }
+        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 2px solid #eef2f7; }
+        .dark .page-header { border-bottom-color: rgba(255,255,255,0.06); }
+        .page-header-logo { height: 20px; }
+        .page-header-label { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.15em; }
+
+        .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
+        .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--cyan); }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.6rem; color: var(--navy); }
+        .dark .section-title { color: white; }
+        .section-title span { background: linear-gradient(135deg, var(--cyan), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .section-desc { font-size: 0.8rem; color: #5a6a7a; line-height: 1.6; }
+        .dark .section-desc { color: var(--gray-light); }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+        .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: start; }
+
+        .img-frame { border-radius: 10px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        .dark .img-frame { box-shadow: 0 12px 40px rgba(0,0,0,0.4); border: 1px solid rgba(0,212,255,0.12); }
+        .img-frame img { width: 100%; }
+
+        .check-list { list-style: none; margin-top: 0.8rem; }
+        .check-list li { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.35rem 0; font-size: 0.72rem; color: #4a5a6a; }
+        .dark .check-list li { color: var(--gray-light); }
+        .check-list li strong { color: var(--navy); font-weight: 600; }
+        .dark .check-list li strong { color: white; }
+        .check-icon { width: 18px; height: 18px; background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3); border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+        .feat-card { background: #f7f9fc; border: 1px solid #eef2f7; border-radius: 10px; padding: 0.8rem; }
+        .dark .feat-card { background: var(--surface); border-color: rgba(0,212,255,0.1); }
+        .feat-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.2rem; color: var(--navy); }
+        .dark .feat-card h4 { color: white; }
+        .feat-card p { font-size: 0.62rem; color: #6a7a8a; line-height: 1.4; }
+        .dark .feat-card p { color: var(--gray); }
+        .feat-icon { width: 32px; height: 32px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.4rem; }
+
+        .spec-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.7rem; margin-top: 1rem; }
+        .spec-item { background: #f7f9fc; border: 1px solid #eef2f7; border-radius: 10px; padding: 0.8rem; text-align: center; }
+        .dark .spec-item { background: var(--surface); border-color: rgba(0,212,255,0.1); }
+        .spec-val { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 800; color: var(--cyan); }
+        .spec-lbl { font-size: 0.55rem; color: #8a9aaa; margin-top: 2px; }
+
+        .gallery-grid { display: grid; gap: 0.5rem; }
+        .gallery-item { border-radius: 8px; overflow: hidden; border: 1px solid #eef2f7; }
+        .dark .gallery-item { border-color: rgba(0,212,255,0.1); }
+        .gallery-item img { width: 100%; object-fit: cover; }
+
+        .nodes-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+        .node-chip { background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); border-radius: 8px; padding: 0.4rem 0.7rem; font-size: 0.62rem; font-weight: 600; color: var(--blue); display: flex; align-items: center; gap: 0.3rem; }
+
+        .phones-row { display: flex; gap: 1rem; justify-content: center; align-items: center; }
+        .phone-img { width: 130px; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.15); border: 1px solid #eef2f7; }
+        .phone-img img { width: 100%; }
+
+        /* STEPS */
+        .steps-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; position: relative; }
+        .steps-row::before { content: ''; position: absolute; top: 24px; left: 12.5%; right: 12.5%; height: 2px; background: linear-gradient(90deg, #eee, var(--cyan), #eee); }
+        .step { text-align: center; position: relative; z-index: 2; }
+        .step-num { width: 48px; height: 48px; background: white; border: 2px solid #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 700; color: var(--cyan); }
+        .step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .step p { font-size: 0.6rem; color: #8a9aaa; max-width: 140px; margin: 0 auto; }
+
+        /* CTA PAGE */
+        .cta-page { background: linear-gradient(160deg, var(--blue-dark), var(--blue), var(--navy)); color: white; display: flex; align-items: center; justify-content: center; padding: 2.5rem 3.5rem; }
+        .cta-page .cover-grid { opacity: 0.5; }
+        .cta-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center; width: 100%; }
+        .cta-logo { width: 160px; margin-bottom: 1.2rem; }
+        .cta-page h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 0.8rem; letter-spacing: -0.03em; }
+        .cta-page h2 span { background: linear-gradient(135deg, var(--cyan), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .cta-page .desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); max-width: 420px; line-height: 1.7; margin-bottom: 1.5rem; }
+        .cta-email { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: var(--cyan); }
+        .cta-web { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; }
+        .cta-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem 2rem; width: 100%; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; margin-bottom: 0.8rem; }
+        .cta-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0; font-size: 0.8rem; color: rgba(255,255,255,0.8); }
+        .cta-item svg { flex-shrink: 0; }
+
+        /* Download button */
+        .download-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--navy); padding: 0.8rem 2rem; display: flex; justify-content: center; gap: 1rem; z-index: 9999; border-top: 1px solid rgba(0,212,255,0.15); }
+        .dl-btn { padding: 0.6rem 1.8rem; background: linear-gradient(135deg, var(--blue), var(--cyan-dim)); color: white; border: none; border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,168,204,0.35); }
+        .dl-btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.2); }
+        .dl-btn.secondary:hover { border-color: var(--cyan); color: var(--cyan); }
+
+        @media print {
+            .download-bar { display: none; }
+            body { margin: 0; }
+            .page { box-shadow: none; margin: 0; }
+        }
+        @media screen {
+            .page { box-shadow: 0 4px 30px rgba(0,0,0,0.1); margin: 1rem auto 2rem; }
+            body { background: #e8ecf0; padding-bottom: 70px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- DOWNLOAD BAR -->
+<div class="download-bar">
+    <button class="dl-btn" onclick="window.print()">Guardar como PDF (Cmd+P)</button>
+    <button class="dl-btn secondary" onclick="alert('Usa Cmd+P (Mac) o Ctrl+P (Win) > Guardar como PDF. Asegura que Background graphics este activado y la orientacion sea Horizontal.')">Instrucciones</button>
+</div>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="page cover">
+    <div class="cover-orb o1"></div>
+    <div class="cover-orb o2"></div>
+    <div class="cover-grid"></div>
+    <div class="cover-content">
+        <div class="cover-left">
+            <img class="cover-logo" src="images/logo-v-accent-wide.png" alt="VONTECH">
+            <div class="cover-badge"><span class="dot"></span> Plataforma Industrial IoT</div>
+            <h1>Control y monitoreo<br>de <span>procesos industriales</span></h1>
+            <p class="cover-sub">Plataforma completa de software y hardware para distribuidores y fabricantes de plantas de tratamiento de agua, piscinas y equipos industriales.</p>
+            <div class="cover-stats">
+                <div class="cover-stat"><div class="cover-stat-val">24<span class="acc">/7</span></div><div class="cover-stat-lbl">Monitoreo continuo</div></div>
+                <div class="cover-stat"><div class="cover-stat-val">&lt;1<span class="acc">s</span></div><div class="cover-stat-lbl">Tiempo de respuesta</div></div>
+                <div class="cover-stat"><div class="cover-stat-val">15<span class="acc">+</span></div><div class="cover-stat-lbl">Sensores</div></div>
+                <div class="cover-stat"><div class="cover-stat-val">WiFi</div><div class="cover-stat-lbl">Conectividad IoT</div></div>
+            </div>
+        </div>
+        <div class="cover-image">
+            <img src="images/hmi-process-overview.png" alt="Vontech HMI">
+        </div>
+    </div>
+    <div class="cover-footer"><p>vontech.app &bull; info@vontech.app</p></div>
+</div>
+
+<!-- ===== PAGE 2: ABOUT + PLATFORMS ===== -->
+<div class="page inner-page">
+    <div class="page-header">
+        <img class="page-header-logo" src="images/logo-blue-wide.png" alt="VONTECH">
+        <span class="page-header-label">Sobre Vontech</span>
+    </div>
+
+    <div class="two-col" style="margin-bottom: 1.5rem;">
+        <div>
+            <div class="section-label">Sobre Nosotros</div>
+            <h2 class="section-title">Tecnologia de <span>siguiente generacion</span></h2>
+            <p class="section-desc">
+                Vontech desarrolla sistemas HMI y plataformas IoT para distribuidores y fabricantes de plantas de tratamiento de agua, sistemas de piscinas y equipos industriales en general. Integramos hardware y software para ofrecer control total: desde la operacion en planta hasta la gestion de clientes, tecnicos y servicios.
+            </p>
+            <p class="section-desc" style="margin-top: 0.6rem; font-weight: 600; color: var(--blue);">
+                No fabricamos maquinas. Construimos la tecnologia de control y monitoreo que las hace inteligentes.
+            </p>
+        </div>
+        <div class="img-frame">
+            <img src="images/ro-machine.png" alt="Maquina con sistema Vontech">
+        </div>
+    </div>
+
+    <div style="background: #f7f9fc; border-radius: 14px; padding: 1.2rem 1.5rem; border: 1px solid #eef2f7;">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--navy);">Tres Plataformas, Un Ecosistema</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <div style="width: 44px; height: 44px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="22" height="22" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.78rem; font-weight: 700; color: var(--navy);">Guardian HMI</h4>
+                    <p style="font-size: 0.62rem; color: #8a9aaa;">Pantalla tactil industrial con control directo en planta</p>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <div style="width: 44px; height: 44px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="22" height="22" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.78rem; font-weight: 700; color: var(--navy);">Portal Web</h4>
+                    <p style="font-size: 0.62rem; color: #8a9aaa;">Dashboard para distribuidores y fabricantes</p>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <div style="width: 44px; height: 44px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="22" height="22" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.78rem; font-weight: 700; color: var(--navy);">App Movil</h4>
+                    <p style="font-size: 0.62rem; color: #8a9aaa;">Supervision y control para clientes finales</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 3: GUARDIAN HMI ===== -->
+<div class="page inner-page dark">
+    <div class="page-header">
+        <img class="page-header-logo" src="images/logo-white-transparent.png" alt="VONTECH">
+        <span class="page-header-label">Fase 1 // Guardian HMI</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; align-items: start;">
+        <div>
+            <div class="section-label">Guardian HMI</div>
+            <h2 class="section-title" style="color:white;">Interfaz <span>tactil industrial</span> de alto rendimiento</h2>
+            <p class="section-desc" style="margin-bottom: 1rem;">
+                Pantalla tactil de 7" con diagramas P&amp;ID interactivos, control de valvulas con confirmacion tactil, alarmas con umbrales configurables, graficas historicas, programacion de tareas automatizadas, gestion de usuarios con roles y activity log completo.
+            </p>
+            <div class="img-frame" style="margin-bottom: 0.8rem;">
+                <img src="images/hmi-valve-control.png" alt="HMI Valve Control">
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem;">
+                <div class="gallery-item"><img src="images/hmi-process-overview.png" alt=""></div>
+                <div class="gallery-item"><img src="images/hmi-alarm-history.png" alt=""></div>
+                <div class="gallery-item"><img src="images/hmi-sensor-details.png" alt=""></div>
+                <div class="gallery-item"><img src="images/hmi-backwash-action.png" alt=""></div>
+            </div>
+        </div>
+        <div>
+            <div style="display: grid; gap: 0.6rem;">
+                <div class="feat-card">
+                    <div class="feat-icon"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <h4>Monitoreo en Tiempo Real</h4>
+                    <p>TDS, conductividad, presion, pH, temperatura, resistividad y 15+ sensores simultaneos</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                    <h4>Control de Valvulas</h4>
+                    <p>Apertura/cierre con confirmacion tactil y diagrama P&amp;ID interactivo</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
+                    <h4>Alarmas Configurables</h4>
+                    <p>Umbrales por sensor con historial, notificaciones y escalamiento automatico</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+                    <h4>Gestion de Usuarios</h4>
+                    <p>Roles: Administrador, Operador, Visualizador con permisos granulares</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                    <h4>Programacion & Activity Log</h4>
+                    <p>Tareas automatizadas por horario y registro completo de acciones con auditoria</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 4: MACHINE EDITOR ===== -->
+<div class="page inner-page">
+    <div class="page-header">
+        <img class="page-header-logo" src="images/logo-blue-wide.png" alt="VONTECH">
+        <span class="page-header-label">Machine Editor</span>
+    </div>
+
+    <div class="two-col">
+        <div>
+            <div class="section-label">Machine Editor</div>
+            <h2 class="section-title">Disena tus procesos <span>visualmente</span></h2>
+            <p class="section-desc">
+                El Machine Editor permite disenar la secuencia completa de control de cualquier maquina. Arrastra y conecta componentes industriales para crear flujos de proceso personalizados con logica avanzada.
+            </p>
+            <ul class="check-list">
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Setpoints Configurables</strong> &mdash; Cada sensor define umbrales que disparan acciones automaticas</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Nodos y Dependencias</strong> &mdash; Logica entre sensores para secuencias complejas</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Secuencias Multi-Paso</strong> &mdash; Backwash, CIP, llenado con pasos temporizados y condiciones</div>
+                </li>
+            </ul>
+            <h4 style="font-size: 0.72rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.4rem; color: var(--blue);">Componentes Soportados:</h4>
+            <div class="nodes-row">
+                <div class="node-chip"><svg width="12" height="12" fill="none" stroke="var(--blue)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg> Valvulas</div>
+                <div class="node-chip"><svg width="12" height="12" fill="none" stroke="var(--blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg> Bombas</div>
+                <div class="node-chip"><svg width="12" height="12" fill="none" stroke="var(--blue)" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15h18"/></svg> Tanques</div>
+                <div class="node-chip"><svg width="12" height="12" fill="none" stroke="var(--blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Sensores</div>
+                <div class="node-chip"><svg width="12" height="12" fill="none" stroke="var(--blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg> Filtros</div>
+                <div class="node-chip">Membranas</div>
+                <div class="node-chip">Mixers</div>
+                <div class="node-chip">Llenado</div>
+            </div>
+        </div>
+        <div>
+            <div class="img-frame" style="margin-bottom: 0.8rem;">
+                <img src="images/hmi-process-overview.png" alt="Machine Editor - Process Design">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+                <div class="img-frame"><img src="images/hmi-backwash-action.png" alt="Backwash Sequence"></div>
+                <div class="img-frame"><img src="images/hmi-create-schedule.png" alt="Schedule"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 5: WEB PORTAL ===== -->
+<div class="page inner-page dark">
+    <div class="page-header">
+        <img class="page-header-logo" src="images/logo-white-transparent.png" alt="VONTECH">
+        <span class="page-header-label">Fase 2 // Portal Web</span>
+    </div>
+
+    <div class="two-col">
+        <div>
+            <div class="img-frame" style="margin-bottom: 0.8rem;">
+                <img src="images/web-portal-overview.png" alt="Web Portal">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <div class="img-frame"><img src="images/web-portal-readings.png" alt="Readings"></div>
+                <div class="img-frame"><img src="images/web-portal-trends.png" alt="Trends"></div>
+            </div>
+        </div>
+        <div>
+            <div class="section-label">Portal Web para Distribuidores</div>
+            <h2 class="section-title" style="color:white;">Gestiona tu operacion <span>completa</span></h2>
+            <p class="section-desc">
+                Disenado para distribuidores y fabricantes. Gestiona clientes, maquinas, servicios, tecnicos y partes desde una plataforma centralizada.
+            </p>
+            <ul class="check-list">
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Multi-Cliente & Multi-Maquina</strong><br>Dashboard unificado con estado en tiempo real de toda tu flota</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Supervision & Control Remoto</strong><br>Monitorea sensores y controla plantas sin visitas presenciales</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Mantenimiento & Servicios</strong><br>Gestion de partes, repuestos, proximos mantenimientos e historial</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Tecnicos & Rutas</strong><br>Asignacion de rutas, tracking GPS en tiempo real, carga de trabajo</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Tendencias, Alertas & Webhooks</strong><br>Graficas historicas, notificaciones por sensor y trazabilidad completa</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 6: MOBILE APP ===== -->
+<div class="page inner-page">
+    <div class="page-header">
+        <img class="page-header-logo" src="images/logo-blue-wide.png" alt="VONTECH">
+        <span class="page-header-label">Fase 3 // App Movil</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 2.5rem; align-items: center;">
+        <div>
+            <div class="section-label">App Movil para Clientes</div>
+            <h2 class="section-title">Tus clientes <span>conectados</span> a sus maquinas</h2>
+            <p class="section-desc">
+                La app empodera a los clientes finales con acceso directo al estado de sus maquinas, calidad de agua, tracking de tecnicos y comunicacion directa con el fabricante o distribuidor.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1rem;">
+                <ul class="check-list" style="margin-top: 0;">
+                    <li>
+                        <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                        <div><strong>Estado & Calidad de Agua</strong> &mdash; Lecturas en vivo de todos los sensores</div>
+                    </li>
+                    <li>
+                        <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                        <div><strong>Tracking de Tecnico</strong> &mdash; Rastreo en vivo y estado del servicio</div>
+                    </li>
+                </ul>
+                <ul class="check-list" style="margin-top: 0;">
+                    <li>
+                        <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                        <div><strong>Historial & Garantias</strong> &mdash; Servicios, documentacion y garantias</div>
+                    </li>
+                    <li>
+                        <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                        <div><strong>Comunicacion Directa</strong> &mdash; Solicitudes y chat con distribuidor</div>
+                    </li>
+                </ul>
+            </div>
+            <div style="display: flex; gap: 0.8rem; margin-top: 1.2rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #f7f9fc; border: 1px solid #eef2f7; border-radius: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#333"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span style="font-size: 0.7rem; font-weight: 600;">App Store</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #f7f9fc; border: 1px solid #eef2f7; border-radius: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#333"><path d="M3.18 23.75c.17.09.37.13.57.13.2 0 .41-.05.6-.15l9.13-5.27-2.44-2.44L3.18 23.75zM1.58 2.01C1.53 2.15 1.5 2.32 1.5 2.5v19c0 .28.08.52.22.72L10.2 13.7 1.58 2.01z"/></svg>
+                    <span style="font-size: 0.7rem; font-weight: 600;">Google Play</span>
+                </div>
+            </div>
+        </div>
+        <div class="phones-row" style="justify-content: center;">
+            <div class="phone-img" style="width: 120px;"><img src="images/mobile-readings.png" alt="Readings"></div>
+            <div class="phone-img" style="width: 120px;"><img src="images/mobile-trends.png" alt="Trends"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 7: PISCINAS + HARDWARE ===== -->
+<div class="page inner-page dark">
+    <div class="page-header">
+        <img class="page-header-logo" src="images/logo-white-transparent.png" alt="VONTECH">
+        <span class="page-header-label">Industria de Piscinas & Hardware</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start;">
+        <!-- POOL SECTION -->
+        <div>
+            <div class="section-label" style="color: var(--teal);">Nuevo: Piscinas</div>
+            <h2 class="section-title" style="color: white; font-size: 1.3rem;">Supervision y control <span>de piscinas</span></h2>
+            <p class="section-desc" style="font-size: 0.75rem;">
+                La plataforma Vontech se adapta a la industria de piscinas comerciales, residenciales y de competencia. Monitorea pH, cloro, temperatura, turbidez, ORP y nivel de agua en tiempo real.
+            </p>
+            <ul class="check-list">
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Calidad de Agua</strong> &mdash; pH, cloro, ORP, temperatura monitoreados 24/7</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Dosificacion Automatica</strong> &mdash; Bombas dosificadoras basadas en setpoints</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>Filtrado & Backwash</strong> &mdash; Secuencias automatizadas programables</div>
+                </li>
+                <li>
+                    <span class="check-icon"><svg width="12" height="12" fill="none" stroke="var(--teal)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><strong>App para el Cliente</strong> &mdash; El dueno ve el estado desde su celular</div>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <!-- Pool illustration -->
+            <div style="background: linear-gradient(145deg, rgba(0,212,255,0.08), rgba(0,229,160,0.05)); border: 1px solid rgba(0,212,255,0.15); border-radius: 14px; padding: 1.2rem; text-align: center; margin-bottom: 1rem;">
+                <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 320px; margin: 0 auto;">
+                    <!-- Pool shape -->
+                    <rect x="40" y="60" width="320" height="130" rx="20" fill="rgba(0,212,255,0.08)" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+                    <rect x="50" y="75" width="300" height="105" rx="14" fill="rgba(0,212,255,0.12)"/>
+                    <!-- Water waves -->
+                    <path d="M50 110 Q100 100 150 110 Q200 120 250 110 Q300 100 350 110" stroke="rgba(0,212,255,0.3)" stroke-width="1.5" fill="none"/>
+                    <path d="M50 130 Q100 120 150 130 Q200 140 250 130 Q300 120 350 130" stroke="rgba(0,212,255,0.2)" stroke-width="1.5" fill="none"/>
+                    <path d="M50 150 Q100 140 150 150 Q200 160 250 150 Q300 140 350 150" stroke="rgba(0,212,255,0.15)" stroke-width="1.5" fill="none"/>
+                    <!-- HMI Panel -->
+                    <rect x="280" y="15" width="80" height="45" rx="6" fill="rgba(15,34,64,0.9)" stroke="var(--cyan)" stroke-width="1.5"/>
+                    <rect x="286" y="21" width="68" height="28" rx="3" fill="rgba(0,212,255,0.1)"/>
+                    <text x="320" y="38" text-anchor="middle" font-size="8" fill="var(--cyan)" font-family="JetBrains Mono">pH 7.2</text>
+                    <text x="320" y="46" text-anchor="middle" font-size="5" fill="rgba(255,255,255,0.4)" font-family="JetBrains Mono">ONLINE</text>
+                    <line x1="320" y1="60" x2="320" y2="75" stroke="var(--cyan)" stroke-width="1" stroke-dasharray="4 2"/>
+                    <!-- Sensors -->
+                    <circle cx="100" cy="120" r="8" fill="rgba(0,229,160,0.2)" stroke="var(--teal)" stroke-width="1.5"/>
+                    <text x="100" y="123" text-anchor="middle" font-size="5" fill="var(--teal)" font-weight="bold">pH</text>
+                    <circle cx="200" cy="110" r="8" fill="rgba(0,212,255,0.2)" stroke="var(--cyan)" stroke-width="1.5"/>
+                    <text x="200" y="113" text-anchor="middle" font-size="5" fill="var(--cyan)" font-weight="bold">Cl</text>
+                    <circle cx="300" cy="120" r="8" fill="rgba(0,229,160,0.2)" stroke="var(--teal)" stroke-width="1.5"/>
+                    <text x="300" y="123" text-anchor="middle" font-size="4.5" fill="var(--teal)" font-weight="bold">ORP</text>
+                    <circle cx="150" cy="140" r="8" fill="rgba(255,77,106,0.15)" stroke="#FF4D6A" stroke-width="1.5"/>
+                    <text x="150" y="143" text-anchor="middle" font-size="5" fill="#FF4D6A" font-weight="bold">T</text>
+                    <!-- WiFi -->
+                    <g transform="translate(40, 15)">
+                        <path d="M8 18 Q16 10 24 18" stroke="var(--cyan)" stroke-width="1.5" fill="none"/>
+                        <path d="M4 14 Q16 4 28 14" stroke="var(--cyan)" stroke-width="1.5" fill="none" opacity="0.6"/>
+                        <path d="M0 10 Q16 -2 32 10" stroke="var(--cyan)" stroke-width="1.5" fill="none" opacity="0.3"/>
+                        <circle cx="16" cy="20" r="2" fill="var(--cyan)"/>
+                    </g>
+                    <text x="56" y="40" font-size="7" fill="rgba(255,255,255,0.5)" font-family="JetBrains Mono">WiFi</text>
+                    <text x="200" y="215" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.4)" font-family="Space Grotesk" font-weight="600">VONTECH POOL MONITORING</text>
+                </svg>
+                <div style="display: flex; gap: 0.8rem; justify-content: center; margin-top: 0.8rem;">
+                    <div style="background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 8px; padding: 0.4rem 0.7rem; text-align: center;">
+                        <div style="font-family: 'JetBrains Mono'; font-size: 0.85rem; font-weight: 800; color: var(--cyan);">pH 7.2</div>
+                        <div style="font-size: 0.5rem; color: var(--gray);">Optimo</div>
+                    </div>
+                    <div style="background: rgba(0,229,160,0.08); border: 1px solid rgba(0,229,160,0.15); border-radius: 8px; padding: 0.4rem 0.7rem; text-align: center;">
+                        <div style="font-family: 'JetBrains Mono'; font-size: 0.85rem; font-weight: 800; color: var(--teal);">1.5 ppm</div>
+                        <div style="font-size: 0.5rem; color: var(--gray);">Cloro</div>
+                    </div>
+                    <div style="background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 8px; padding: 0.4rem 0.7rem; text-align: center;">
+                        <div style="font-family: 'JetBrains Mono'; font-size: 0.85rem; font-weight: 800; color: var(--cyan);">28&deg;C</div>
+                        <div style="font-size: 0.5rem; color: var(--gray);">Temp</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HARDWARE -->
+            <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.8rem;">
+                <div class="section-label">Hardware de Control</div>
+                <p style="font-size: 0.72rem; color: var(--gray-light); margin-bottom: 0.8rem;">
+                    El sistema HMI Guardian se integra con cualquier equipo industrial para automatizar y monitorear via WiFi e IoT.
+                </p>
+                <div class="spec-grid" style="grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem;">
+                    <div class="spec-item"><div class="spec-val">7"</div><div class="spec-lbl">Pantalla HMI Tactil</div></div>
+                    <div class="spec-item"><div class="spec-val">15+</div><div class="spec-lbl">Tipos de Sensores</div></div>
+                    <div class="spec-item"><div class="spec-val">WiFi</div><div class="spec-lbl">Conectividad IoT</div></div>
+                    <div class="spec-item"><div class="spec-val">&lt;1s</div><div class="spec-lbl">Tiempo Respuesta</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 8: HOW IT WORKS + FEATURES ===== -->
+<div class="page inner-page">
+    <div class="page-header">
+        <img class="page-header-logo" src="images/logo-blue-wide.png" alt="VONTECH">
+        <span class="page-header-label">Como Funciona</span>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 0.5rem;">
+        <div class="section-label" style="justify-content: center;"><span style="display:none;"></span>Proceso</div>
+        <h2 class="section-title" style="max-width: 500px; margin: 0 auto 0.4rem;">De la <span>instalacion</span> al control total</h2>
+        <p style="font-size: 0.78rem; color: #8a9aaa; max-width: 500px; margin: 0 auto;">Un proceso simple para comenzar a monitorear y controlar tus equipos industriales y de piscinas.</p>
+    </div>
+
+    <div class="steps-row" style="margin: 1.2rem 0;">
+        <div class="step">
+            <div class="step-num">01</div>
+            <h4>Instalacion</h4>
+            <p>Integramos el HMI Guardian en tu maquina o sistema de piscina</p>
+        </div>
+        <div class="step">
+            <div class="step-num">02</div>
+            <h4>Machine Editor</h4>
+            <p>Disena tu proceso: valvulas, sensores, setpoints y secuencias</p>
+        </div>
+        <div class="step">
+            <div class="step-num">03</div>
+            <h4>Conexion WiFi</h4>
+            <p>El HMI se conecta a la nube via WiFi para sync en tiempo real</p>
+        </div>
+        <div class="step">
+            <div class="step-num">04</div>
+            <h4>Control Total</h4>
+            <p>Monitorea desde web o app, configura alarmas y optimiza</p>
+        </div>
+    </div>
+
+    <!-- FEATURES GRID -->
+    <div style="border-top: 1px solid #eef2f7; padding-top: 1rem;">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.8rem; text-align: center;">Funcionalidades Completas</h3>
+        <div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 0.6rem;">
+            <div class="feat-card" style="text-align: center;">
+                <div class="feat-icon" style="margin: 0 auto 0.4rem;"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                <h4>Monitoreo Real-Time</h4>
+                <p>15+ sensores simultaneos en vivo</p>
+            </div>
+            <div class="feat-card" style="text-align: center;">
+                <div class="feat-icon" style="margin: 0 auto 0.4rem;"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                <h4>Tareas Programadas</h4>
+                <p>Backwash, lecturas y mantenimiento</p>
+            </div>
+            <div class="feat-card" style="text-align: center;">
+                <div class="feat-icon" style="margin: 0 auto 0.4rem;"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
+                <h4>Tendencias</h4>
+                <p>Graficas 2h, 24h, 7d y custom</p>
+            </div>
+            <div class="feat-card" style="text-align: center;">
+                <div class="feat-icon" style="margin: 0 auto 0.4rem;"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg></div>
+                <h4>WiFi & IoT</h4>
+                <p>Sync entre HMI, nube y moviles</p>
+            </div>
+            <div class="feat-card" style="text-align: center;">
+                <div class="feat-icon" style="margin: 0 auto 0.4rem;"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
+                <h4>Alarmas</h4>
+                <p>Umbrales, push y escalamiento</p>
+            </div>
+            <div class="feat-card" style="text-align: center;">
+                <div class="feat-icon" style="margin: 0 auto 0.4rem;"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h4>Auditoria</h4>
+                <p>Activity log con trazabilidad total</p>
+            </div>
+            <div class="feat-card" style="text-align: center;">
+                <div class="feat-icon" style="margin: 0 auto 0.4rem;"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg></div>
+                <h4>Tema Oscuro/Claro</h4>
+                <p>Adaptable a condiciones de luz</p>
+            </div>
+            <div class="feat-card" style="text-align: center;">
+                <div class="feat-icon" style="margin: 0 auto 0.4rem;"><svg width="16" height="16" fill="none" stroke="var(--cyan)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                <h4>Webhooks</h4>
+                <p>Integracion con servicios externos</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 9: CTA ===== -->
+<div class="page cta-page">
+    <div class="cover-grid"></div>
+    <div class="cover-orb o1"></div>
+    <div class="cover-orb o2"></div>
+    <div class="cta-content">
+        <div>
+            <img class="cta-logo" src="images/logo-v-accent-wide.png" alt="VONTECH">
+            <h2>Listo para transformar<br>tu <span>operacion</span>?</h2>
+            <p class="desc">Agenda una demostracion personalizada y descubre como Vontech puede optimizar el control de tus procesos industriales y de piscinas.</p>
+            <div class="cta-email">info@vontech.app</div>
+            <div class="cta-web">vontech.app</div>
+            <div style="margin-top: 1.5rem;">
+                <div style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-bottom: 0.3rem;">Aplicaciones</div>
+                <div style="font-size: 0.65rem; color: rgba(255,255,255,0.6);">Tratamiento de Agua &bull; Piscinas &bull; Industria General</div>
+            </div>
+        </div>
+        <div class="cta-box">
+            <h3>Lo que incluye tu demo:</h3>
+            <div class="cta-item">
+                <svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                Demo personalizada sin costo
+            </div>
+            <div class="cta-item">
+                <svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                Respuesta en menos de 24 horas
+            </div>
+            <div class="cta-item">
+                <svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                Asesoria tecnica sin compromiso
+            </div>
+            <div class="cta-item">
+                <svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                Propuesta adaptada a tu operacion
+            </div>
+        </div>
+    </div>
+    <div class="cover-footer"><p>&copy; 2026 VONTECH&reg;. Todos los derechos reservados.</p></div>
+</div>
+
+</body>
+</html>
