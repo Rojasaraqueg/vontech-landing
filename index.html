@@ -846,7 +846,7 @@
             <p class="sdesc mx">Tell us about your application and we'll design a custom solution. Free consultation, fast response.</p>
         </div>
         <div class="contact-grid rv">
-            <form action="https://formspree.io/f/manager@vontech.info" method="POST">
+            <form id="mainContactForm">
                 <div class="fr">
                     <div class="fg"><label class="fl">Full Name</label><input type="text" class="fi" name="name" placeholder="Your name" required></div>
                     <div class="fg"><label class="fl">Company</label><input type="text" class="fi" name="company" placeholder="Company name"></div>
@@ -968,6 +968,41 @@ function showP(id){
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('navLinks').classList.remove('open')});
 });
+
+// IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+const FORM_ENDPOINT = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+const mainForm = document.getElementById('mainContactForm');
+if (mainForm) {
+    mainForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.btn-sub');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+
+        const formData = new FormData(this);
+        const data = { source_page: 'Main Website - vontechsolutions.com' };
+        formData.forEach((val, key) => { data[key] = val; });
+
+        fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            mainForm.innerHTML = '<div style="text-align:center;padding:3rem 1rem"><div style="width:64px;height:64px;background:rgba(0,229,160,.1);border:2px solid #00E5A0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem"><svg width="28" height="28" fill="none" stroke="#00E5A0" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><h3 style="font-family:Space Grotesk;font-size:1.4rem;font-weight:700;margin-bottom:.5rem">Request Submitted</h3><p style="color:#8899AA;font-size:.95rem;max-width:360px;margin:0 auto;line-height:1.6">Thank you for your interest. A Vontech specialist will contact you within 24 hours.</p></div>';
+        })
+        .catch(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            alert('There was an error. Please try again or email us at manager@vontech.info');
+        });
+    });
+}
 </script>
 </body>
 </html>
