@@ -31,6 +31,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://vontechsolutions.com/sensors/</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://vontechsolutions.com/scada-alternative/</loc>
         <lastmod>2026-03-07</lastmod>
         <changefreq>monthly</changefreq>
