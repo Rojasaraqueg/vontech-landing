@@ -1178,7 +1178,7 @@
     window.addEventListener('mousemove', e => { const orbs = document.querySelectorAll('.hero-bg-orb'); const x = (e.clientX/window.innerWidth-0.5)*30; const y = (e.clientY/window.innerHeight-0.5)*30; orbs.forEach((o,i) => { const f=(i+1)*0.5; o.style.transform=`translate(${x*f}px,${y*f}px)`; }); });
 
     // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
-    const FORM_ENDPOINT = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+    const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbx6d_IpYOPwaf7BYrKibHQ8gYb_P5U8wUAzlsYWaykSYDMpkOM4u2rdM1qC49UmO7mK/exec";
 
     document.getElementById('guardianForm').addEventListener('submit', function(e) {
         e.preventDefault();
